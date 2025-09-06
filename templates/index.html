@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ایران ترانسفو - سامانه مدیریت مشتریان</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1>
+                <img src="{{ url_for('static', filename='images/Iran_transfo_logo.svg.png') }}" alt="Iran Transfo Logo" class="logo"> ایران ترانسفو
+            </h1>
+            <div class="header-stats">
+                <span class="stat-item contract">
+                    <i class="fas fa-file-contract"></i>
+                    <span id="contract-count">0</span> قرارداد
+                </span>
+                <span class="stat-item customer">
+                    <i class="fas fa-users"></i>
+                    <span id="customer-count">0</span> مشتری
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-input" placeholder="جستجو بر اساس مشتری، قرارداد یا شماره سریال...">
+            </div>
+            <div class="filter-options">
+                <select id="sort-select">
+                    <option value="customer">مرتب‌سازی بر اساس مشتری</option>
+                    <option value="unique_contracts">مرتب‌سازی بر اساس قراردادها</option>
+                    <option value="total_transformers">مرتب‌سازی بر اساس تعداد ترانسفورماتورها</option>
+                    <option value="total_power">مرتب‌سازی بر اساس قدرت کل</option>
+                </select>
+                <select id="customer-filter">
+                    <option value="">تمام مشتریان</option>
+                </select>
+            </div>
+
+            <button id="refresh-btn" class="btn btn-primary">
+                <i class="fas fa-sync-alt"></i> تازه‌سازی
+            </button>
+        </div>
+
+        <!-- Customer List -->
+        <div class="customer-list-container">
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p>در حال بارگذاری مشتریان...</p>
+            </div>
+            <div id="error-message" class="error-message" style="display: none;">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span id="error-text"></span>
+            </div>
+            <div id="customer-list" class="customer-list"></div>
+            <div id="no-customers" class="no-customers" style="display: none;">
+                <i class="fas fa-users"></i>
+                <h3>هیچ مشتری‌ای یافت نشد</h3>
+                <p>هیچ مشتری در پایگاه داده موجود نیست.</p>
+            </div>
+        </div>
+
+        <!-- Customer Details Modal -->
+        <div id="customer-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-title">جزئیات مشتری</h3>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-detail-squares">
+                        <div class="detail-row contract-badge">
+                            <span class="number" id="modal-contract">0</span>
+                        </div>
+                        <div class="detail-row transformer-badge">
+                            <span class="number" id="modal-serial">0</span>
+                        </div>
+                        <div class="detail-row power-badge">
+                            <span class="number" id="modal-power">0</span>
+                        </div>
+                    </div>
+
+                    <!-- Contracts & Transformers Section -->
+                    <div class="contracts-detail">
+                        <h4>لیست قراردادها</h4>
+                        <div class="modal-contracts-list">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
