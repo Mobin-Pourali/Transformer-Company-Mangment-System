@@ -447,7 +447,7 @@ body {
 }
 
 .modal-header {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    background: linear-gradient(135deg, #4577ff 0%, #3e85ff 100%);
     color: white;
     padding: 25px;
     border-radius: 20px 20px 0 0;
@@ -754,17 +754,26 @@ body {
 /* Mobile portrait (small phones) */
 @media only screen and (max-width: 479px) {
 .search-section { flex-direction: column; gap: 10px; }
-.search-box input { padding: 12px; }
+.search-box input { padding: 20px; }
+.search-box i {opacity: 0;}
+.search-section .btn{ width: 40%; position: relative; margin: 0 auto; }
 .customer-list { gap: 10px; }
 .customer-card { padding: 15px; }
-.customer-name { font-size: 1.5rem; }
+.customer-card:hover { transform: scale(1); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); }
+.customer-name { font-size: 1.5rem; position: relative; margin: 0 auto; }
+.customer-stats {position: relative; margin: 0 auto;}
 .stat-badge { width: 90px; height: 90px; padding: 8px; font-size: 0.85rem; }
-.modal-content { width: 100%; max-width: 100%; margin: 2% auto; height: 90vh; }
+.stat-badge .label { font-size: 0.8.5rem; }
+.modal-content { width: 90%; max-width: 100%; margin: 2% auto; height: 75vh; }
 .modal-body { padding: 15px; }
+.modal-header #modal-title { font-size: 1.4rem; }
 .modal-detail-squares { flex-direction: column; gap: 10px; align-items: center; }
-.detail-row { width: 100%; min-height: auto; padding: 8px; }
+.detail-row { width: 50%; min-height: auto; padding: 8px; display: flex; justify-content: center; align-items: center; text-align: center; }
 .modal-contracts-list { max-height: 250px; }
 .modal-transformers-list { max-height: 120px; }
+.filter-options { display: flex; justify-content: center; align-items: center; text-align: center; }
+.transformers-list { display: flex; gap: 20px; margin-bottom: 20px; }
+.transformer-item { flex: 1; padding: 20px; text-align: center; }
 }
 
 /* Medium Desktop / large tablets */
