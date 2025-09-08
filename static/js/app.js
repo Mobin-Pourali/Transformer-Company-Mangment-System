@@ -1,4 +1,4 @@
-// Iran Transfo Management Application JavaScript
+// Transformer Company Management Application JavaScript
 
 class CustomerApp {
     constructor() {

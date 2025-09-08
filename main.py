@@ -261,7 +261,7 @@ def internal_error(error):
 if __name__ == '__main__':
     try:
         # Test database connection on startup
-        logger.info("Starting Iran Transfo Management System...")
+        logger.info("Starting Transformer Company Management System...")
         
         if db_manager.connect():
             logger.info("Database connection successful")
