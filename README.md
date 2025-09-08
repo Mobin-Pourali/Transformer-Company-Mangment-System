@@ -23,7 +23,7 @@ CREATE TABLE Customers (
     CHARACTER SET utf8mb4 
     COLLATE utf8mb4_0900_ai_ci;
 
-LOAD DATA LOCAL INFILE 'Company.csv' 
+LOAD DATA LOCAL INFILE 'data.csv' 
 INTO TABLE Customers 
 CHARACTER SET utf8mb4 
 FIELDS TERMINATED BY ','  
